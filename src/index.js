@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
+const cors = require("cors");
 const logger = require("./middlewares/logger");
 const errorHandler = require("./middlewares/errorHandler");
 // Carrega .env correto
@@ -10,6 +11,7 @@ const authRoutes = require("./routes/authRoutes");
 const app = express();
 app.use(express.json());
 app.use(logger);
+app.use(cors());
 // Rotas
 app.use("/api/auth", authRoutes);
 //app.use("/api/contacts", contactRoutes);
